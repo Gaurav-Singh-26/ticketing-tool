@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticketing Tool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">SUPPORT WORKSPACE</p>
+      <h1>Ticketing Tool</h1>
+    </div>
+    <span class="status-pill">Frontend Demo</span>
+  </header>
+
+  <main class="container">
+    <section class="summary-grid" aria-label="Ticket summary">
+      <article class="summary-card"><span>Total tickets</span><strong id="totalCount">0</strong></article>
+      <article class="summary-card"><span>Open</span><strong id="openCount">0</strong></article>
+      <article class="summary-card"><span>In progress</span><strong id="progressCount">0</strong></article>
+      <article class="summary-card"><span>Resolved</span><strong id="resolvedCount">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">WORK QUEUE</p>
+          <h2>Create a ticket</h2>
+        </div>
+      </div>
+      <form id="ticketForm" class="ticket-form">
+        <label>
+          Ticket title
+          <input id="ticketTitle" name="title" placeholder="e.g. Unable to sign in" maxlength="100" required>
+        </label>
+        <label>
+          Priority
+          <select id="ticketPriority" name="priority">
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select>
+        </label>
+        <label class="wide">
+          Description
+          <textarea id="ticketDescription" name="description" placeholder="Describe the issue..." rows="3" maxlength="500" required></textarea>
+        </label>
+        <button type="submit">＋ Create ticket</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="list-heading">
+        <div>
+          <p class="eyebrow">TICKET MANAGEMENT</p>
+          <h2>All tickets</h2>
+        </div>
+        <label class="filter-label">Filter
+          <select id="statusFilter">
+            <option value="All">All statuses</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In progress</option>
+            <option value="Resolved">Resolved</option>
+          </select>
+        </label>
+      </div>
+      <div id="ticketList" class="ticket-list" aria-live="polite"></div>
+      <p id="emptyState" class="empty-state">No tickets yet. Create your first ticket above.</p>
+    </section>
+  </main>
+  <footer>Ticketing Tool · Demo project built with HTML, CSS and JavaScript</footer>
+  <script src="app.js"></script>
+</body>
+</html>
